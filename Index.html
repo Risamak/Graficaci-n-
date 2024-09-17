@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escenas en fila con p5.js (sin animaciones)</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+    <script>
+        function setup() {
+            createCanvas(2000, 400);  // Ancho de 2000 px para mostrar las escenas en fila
+            background(255);  // Fondo blanco
+
+            // Escena 1: Muñeco de nieve
+            // Dibujada en la primera sección (de 0 a 400 px)
+            drawSnowman(0);
+
+            // Escena 2: Día soleado
+            // Dibujada en la segunda sección (de 400 a 800 px)
+            drawSunnyDay(400);
+
+            // Escena 3: Cena
+            // Dibujada en la tercera sección (de 800 a 1200 px)
+            drawDinner(800);
+
+            // Escena 4: Dientes de conejo
+            // Dibujada en la cuarta sección (de 1200 a 1600 px)
+            drawBunnyTeeth(1200);
+
+            // Escena 5: Rana
+            // Dibujada en la quinta sección (de 1600 a 2000 px)
+            drawFrog(1600);
+        }
+
+        // Función para dibujar el muñeco de nieve
+        function drawSnowman(offset) {
+            fill(255);
+            rect(offset, 324, 398, 122);  // Suelo
+            ellipse(offset + 200, 300, 150, 150);  // Cuerpo inferior
+            ellipse(offset + 200, 200, 100, 100);  // Cuerpo medio
+            ellipse(offset + 200, 120, 75, 75);    // Cabeza
+            line(offset + 300, 100, offset + 240, 181);  // Brazo derecho
+            line(offset + 100, 100, offset + 160, 181);  // Brazo izquierdo
+        }
+
+        // Función para dibujar un día soleado
+        function drawSunnyDay(offset) {
+            fill(135, 206, 235);
+            rect(offset, 0, 400, 400);  // Cielo azul
+            fill(25, 500, 100);
+            rect(offset, 300, 400, 100);     // Suelo verde
+            fill(255, 223, 0);
+            ellipse(offset + 80, 64, 100, 100);  // Sol
+            fill(255);
+            ellipse(offset + 200, 300, 150, 150);  // Cuerpo inferior del muñeco
+            ellipse(offset + 200, 200, 100, 100);  // Cuerpo medio del muñeco
+            ellipse(offset + 200, 120, 75, 75);    // Cabeza del muñeco
+        }
+
+        // Función para dibujar la cena
+        function drawDinner(offset) {
+            fill(186, 145, 20);
+            rect(offset, 0, 400, 400); // Mesa de madera
+            fill(255);
+            ellipse(offset + 200, 200, 350, 350); // Plato
+            ellipse(offset + 200, 200, 300, 300);
+            fill(250, 250, 145);
+            ellipse(offset + 200, 168, 83, 33);   // Huevo amarillo
+            ellipse(offset + 200, 200, 80, 20);
+            fill(21, 252, 0); 
+            rect(offset + 160, 190, 80, 10);     // Comida verde
+            fill(122, 95, 35);
+            rect(offset + 160, 175, 80, 15);
+            fill(255, 248, 31);
+            rect(offset + 160, 170, 80, 5);      // Capa superior de la comida
+        }
+
+        // Función para dibujar el conejo con dientes
+        function drawBunnyTeeth(offset) {
+            fill(255);
+            ellipse(offset + 150, 70, 60, 120);  // Oreja izquierda
+            ellipse(offset + 240, 70, 60, 120);  // Oreja derecha
+            ellipse(offset + 200, 170, 150, 150); // Cara
+            fill(0);
+            ellipse(offset + 170, 150, 17, 17);  // Ojo izquierdo
+            ellipse(offset + 230, 150, 17, 17);  // Ojo derecho
+            line(offset + 150, 200, offset + 250, 200);   // Boca
+            noFill();
+            rect(offset + 185, 200, 15, 20);     // Diente izquierdo
+            rect(offset + 200, 200, 15, 20);     // Diente derecho
+        }
+
+        // Función para dibujar la rana
+        function drawFrog(offset) {
+            var x = offset + 200;
+            var y = 250;
+
+            noStroke();
+            fill(30, 204, 91); // Verde rana
+
+            ellipse(x, y, 200, 100); // Cara
+            ellipse(x - 50, y - 50, 40, 40); // Ojo izquierdo
+            ellipse(x + 50, y - 50, 40, 40); // Ojo derecho
+
+            fill(255); // Blanco de los ojos
+            ellipse(x - 50, y - 50, 30, 30); // Ojo izquierdo
+            ellipse(x + 50, y - 50, 30, 30); // Ojo derecho
+
+            fill(0);
+            ellipse(x, y, 150, 70); // Boca
+            rect(x - 54, y - 54, 10, 10);  // Pupila izquierda
+            rect(x + 45, y - 54, 10, 10);  // Pupila derecha
+        }
+    </script>
+</body>
+</html>
+
